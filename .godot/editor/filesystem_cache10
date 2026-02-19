@@ -1,4 +1,15 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1770999231
+::res://::1771515652
 icon.svg::CompressedTexture2D::8055952728675210047::1770999206::1770999235::1::::<><><>0<>0<>99ce08563f5a8df94e642e7a100ce237<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile::-1::1770998326::0::1::::<><><>0<>0<><>::
+::res://assets/::1771515676
+::res://assets/sprites/::1771515754
+fruits.tres::Image::8676970264469833117::1771515680::0::1::::<><><>0<>0<><>::
+photo_1_2026-02-19_21-08-46.jpg::CompressedTexture2D::1152455791346770277::1771515754::1771515756::1::::<><><>0<>0<>e23a7be86b067bde739c536e822b8439<>res://.godot/imported/photo_1_2026-02-19_21-08-46.jpg-dfb22511c8aeb5838b84cb2f8c8fa650.ctex::
+photo_2_2026-02-19_21-08-46.jpg::CompressedTexture2D::653285340716895062::1771515754::1771515756::1::::<><><>0<>0<>f6684589e322e178c2253ba4cca8c976<>res://.godot/imported/photo_2_2026-02-19_21-08-46.jpg-423217287c36453098f89e2d3336e376.ctex::
+photo_3_2026-02-19_21-08-46.jpg::CompressedTexture2D::2458352012147833847::1771515754::1771515756::1::::<><><>0<>0<>f6cf77685c2a1d3c5e8c0cffb9f3689c<>res://.godot/imported/photo_3_2026-02-19_21-08-46.jpg-13e76ee6f4b57fbd591ff6ad9e20983f.ctex::
+photo_4_2026-02-19_21-08-46.jpg::CompressedTexture2D::4358718313130281921::1771515748::1771515749::1::::<><><>0<>0<>b999688bc463dc1e6857a1167f5f48d1<>res://.godot/imported/photo_4_2026-02-19_21-08-46.jpg-65dffc1ace3ed631757ded134e5aabbc.ctex::
+photo_5_2026-02-19_21-08-46.jpg::CompressedTexture2D::2689533000842741262::1771515747::1771515749::1::::<><><>0<>0<>232a6d9d9ab7f10a848991f8ff21a071<>res://.godot/imported/photo_5_2026-02-19_21-08-46.jpg-d58c31931a969c4bd010226049c363d0.ctex::
+photo_6_2026-02-19_21-08-46.jpg::CompressedTexture2D::7334637177019297272::1771515747::1771515749::1::::<><><>0<>0<>8470e476f7cf9f1fce94be16b6af155f<>res://.godot/imported/photo_6_2026-02-19_21-08-46.jpg-adae7cf5d9b0936cd4a36e7444cec737.ctex::
+photo_7_2026-02-19_21-08-46.jpg::CompressedTexture2D::1928084623342490815::1771515747::1771515748::1::::<><><>0<>0<>4189caa41b4367cd7b58895a8d8245a4<>res://.godot/imported/photo_7_2026-02-19_21-08-46.jpg-8a2213f1d3dd2653f7e20cbade02c6d5.ctex::
+photo_8_2026-02-19_21-08-46.jpg::CompressedTexture2D::7818676743506047431::1771515748::1771515749::1::::<><><>0<>0<>39a104ebb92eb71b77d8faa07891bee7<>res://.godot/imported/photo_8_2026-02-19_21-08-46.jpg-522a6e46378eebb232fe0cd6212b53ba.ctex::
