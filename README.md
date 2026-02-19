@@ -1,3 +1,4 @@
+![Image](https://raw.githubusercontent.com/top-it-090304/F-S/refs/heads/readme-editing/banner.jpg)
 
 # 🥷 Ninja Aurora
 
