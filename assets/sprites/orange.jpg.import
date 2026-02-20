@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2p8jiqv5jt2v"
-path="res://.godot/imported/photo_7_2026-02-19_21-08-46.jpg-8a2213f1d3dd2653f7e20cbade02c6d5.ctex"
+uid="uid://bek3hlhc5rfic"
+path="res://.godot/imported/orange.jpg-9c3908a72ba81f1090fb97d74729196f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/photo_7_2026-02-19_21-08-46.jpg"
-dest_files=["res://.godot/imported/photo_7_2026-02-19_21-08-46.jpg-8a2213f1d3dd2653f7e20cbade02c6d5.ctex"]
+source_file="res://assets/sprites/orange.jpg"
+dest_files=["res://.godot/imported/orange.jpg-9c3908a72ba81f1090fb97d74729196f.ctex"]
 
 [params]
 

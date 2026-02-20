@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3dnpouf873t2"
-path="res://.godot/imported/photo_4_2026-02-19_21-08-46.jpg-65dffc1ace3ed631757ded134e5aabbc.ctex"
+uid="uid://cbp5yvybg1n86"
+path="res://.godot/imported/raspberry.png-1d0b5fdfb82669237e2765abf72817a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/photo_4_2026-02-19_21-08-46.jpg"
-dest_files=["res://.godot/imported/photo_4_2026-02-19_21-08-46.jpg-65dffc1ace3ed631757ded134e5aabbc.ctex"]
+source_file="res://assets/sprites/raspberry.png"
+dest_files=["res://.godot/imported/raspberry.png-1d0b5fdfb82669237e2765abf72817a7.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jkprqk17kcb3"
-path="res://.godot/imported/photo_2_2026-02-19_21-08-46.jpg-423217287c36453098f89e2d3336e376.ctex"
+uid="uid://wxnnqynu6vuo"
+path="res://.godot/imported/blackberry.png-79caf4205bffe66fc643ca40c9210f2e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/photo_2_2026-02-19_21-08-46.jpg"
-dest_files=["res://.godot/imported/photo_2_2026-02-19_21-08-46.jpg-423217287c36453098f89e2d3336e376.ctex"]
+source_file="res://assets/sprites/blackberry.png"
+dest_files=["res://.godot/imported/blackberry.png-79caf4205bffe66fc643ca40c9210f2e.ctex"]
 
 [params]
 
