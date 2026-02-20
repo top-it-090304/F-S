@@ -1,12 +1,14 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1771567650
+::res://::1771580663
 banner.jpg::CompressedTexture2D::5737633984545295830::1771515907::1771565737::1::::<><><>0<>0<>c409c32b809dc81414409315283323d4<>res://.godot/imported/banner.jpg-692e523388eda68bd34994979ccab0d9.ctex::
+export_presets.cfg::TextFile::-1::1771576270::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::8055952728675210047::1770999206::1770999235::1::::<><><>0<>0<>99ce08563f5a8df94e642e7a100ce237<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile::-1::1771515907::0::1::::<><><>0<>0<><>::
 ::res://assets/::1771567626
-::res://assets/sprites/::1771574651
+::res://assets/sprites/::1771586708
 apple.png::CompressedTexture2D::2374872382230694479::1771567134::1771567134::1::::<><><>0<>0<>b31b169ff58e7fdfe1a6a60af3b64ba3<>res://.godot/imported/apple.png-2b8261e49932b691d65a5727fa4ed090.ctex::
 appleHalf.png::CompressedTexture2D::1328964809128163007::1771573782::1771573783::1::::<><><>0<>0<>d76708d57724a5c99dbe009d3154bb83<>res://.godot/imported/appleHalf.png-1c4f76d1010865fad8b03167b583fd52.ctex::
+background.png::CompressedTexture2D::6237300250837454890::1771586708::1771586709::1::::<><><>0<>0<>1ecb91e862ebe2395ed4ce33ce6648db<>res://.godot/imported/background.png-dde469fb1f19281f3784b52d4bea96cd.ctex::
 banana.png::CompressedTexture2D::7225667865699423955::1771567103::1771567104::1::::<><><>0<>0<>ddbeb4fb075a7c1f90d42ff2b2b2bcb8<>res://.godot/imported/banana.png-16db9d773138133ea0f98ecad7ab24c7.ctex::
 bananaHalf.png::CompressedTexture2D::8499546610873931520::1771574651::1771574652::1::::<><><>0<>0<>19733ea2f6d0da04817079b53a6909ff<>res://.godot/imported/bananaHalf.png-571829707462741af9ac28661c920ef8.ctex::
 blackberry.png::CompressedTexture2D::1592448662674353890::1771567113::1771567113::1::::<><><>0<>0<>955415abe49c3421288ba1cb969adfcc<>res://.godot/imported/blackberry.png-79caf4205bffe66fc643ca40c9210f2e.ctex::
