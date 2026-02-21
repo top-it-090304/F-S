@@ -318,16 +318,16 @@ func create_splatter(position: Vector2, fruit_type: String) -> void:
 		
 		var color = Color(1.0, 0.2, 0.2, 0.6)  # Красный по умолчанию
 		match fruit_type:
-			"banana":
+			"banana", "lemon", "pineapple":
 				color = Color(1.0, 0.9, 0.2, 0.6)
 			"watermelon":
-				color = Color(1.0, 0.3, 0.3, 0.6) 
+				color = Color(1.0, 0.043, 0.302, 0.6) 
 			"orange", "peach", "mandarin":
-				color = Color(1.0, 0.6, 0.2, 0.6) 
+				color = Color(1.0, 0.506, 0.047, 0.6) 
 			"grape":
 				color = Color(0.6, 0.2, 0.8, 0.6)
-			"kiwi":
-				color = Color(0.6, 0.9, 0.3, 0.6)
+			"kiwi", "apple":
+				color = Color(0.573, 0.953, 0.153, 0.6)
 			"cherry", "strawberry":
 				color = Color(1.0, 0.1, 0.1, 0.6)
 		
