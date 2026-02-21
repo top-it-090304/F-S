@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://e2f3g4h5i6j7"]
 
 [ext_resource type="Script" uid="uid://bk2onswxceodu" path="res://game.gd" id="1_game"]
+[ext_resource type="Texture2D" uid="uid://cu4non8apcpmw" path="res://assets/sprites/background.png" id="2_e2o6t"]
 
 [node name="Game" type="Control" unique_id=1453581504]
 layout_mode = 3
@@ -19,6 +20,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.4, 0.25, 0.15, 1)
+
+[node name="Background2" type="Sprite2D" parent="." unique_id=1567145933]
+position = Vector2(544.49994, 972.49994)
+scale = Vector2(1.4882811, 1.4784225)
+texture = ExtResource("2_e2o6t")
 
 [node name="GameArea" type="Control" parent="." unique_id=1658314907]
 layout_mode = 1
