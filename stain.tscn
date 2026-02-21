@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://h5i6j7k8l9m0"]
+
+[ext_resource type="Script" path="res://stain.gd" id="1_stain"]
+
+[node name="Stain" type="Sprite2D"]
+script = ExtResource("1_stain")

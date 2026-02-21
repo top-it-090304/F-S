@@ -1,0 +1,186 @@
+[gd_scene format=3 uid="uid://e2f3g4h5i6j7"]
+
+[ext_resource type="Script" uid="uid://bk2onswxceodu" path="res://game.gd" id="1_game"]
+
+[node name="Game" type="Control" unique_id=1453581504]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_game")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1712415341]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4, 0.25, 0.15, 1)
+
+[node name="GameArea" type="Control" parent="." unique_id=1658314907]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UI" type="Control" parent="." unique_id=1286581601]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LivesLabel" type="Label" parent="UI" unique_id=1455001012]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -100.0
+offset_right = 300.0
+offset_bottom = -20.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+text = "Жизни: 3"
+
+[node name="ScoreLabel" type="Label" parent="UI" unique_id=1168359516]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 100.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 48
+text = "Очки: 0"
+horizontal_alignment = 2
+
+[node name="CountdownLabel" type="Label" parent="UI" unique_id=1506679139]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 120
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BombMessage" type="Label" parent="UI" unique_id=486080130]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -50.0
+offset_right = 400.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 64
+text = "Упс, вы разрезали бомбу!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverPanel" type="Control" parent="UI" unique_id=411669365]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="UI/GameOverPanel" unique_id=1762800662]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15, 0.1, 0.05, 0.95)
+
+[node name="Border" type="ColorRect" parent="UI/GameOverPanel" unique_id=1433116316]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8, 0.6, 0.3, 0.8)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/GameOverPanel" unique_id=956261113]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -250.0
+offset_right = 350.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="UI/GameOverPanel/VBoxContainer" unique_id=77453630]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 72
+text = "Игра окончена!"
+horizontal_alignment = 1
+
+[node name="ScoreContainer" type="HBoxContainer" parent="UI/GameOverPanel/VBoxContainer" unique_id=1359780709]
+layout_mode = 2
+alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="UI/GameOverPanel/VBoxContainer/ScoreContainer" unique_id=621803262]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 96
+text = "0"
+horizontal_alignment = 1
+
+[node name="WatermelonHalfSprite" type="Sprite2D" parent="UI/GameOverPanel/VBoxContainer/ScoreContainer" unique_id=801078614]
+position = Vector2(20, 0)
+scale = Vector2(0.4, 0.4)
+
+[node name="ContinueButton" type="Button" parent="UI/GameOverPanel/VBoxContainer" unique_id=567114665]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 56
+text = "Продолжить"
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1605093532]
+wait_time = 1.5
+
+[node name="StainTimer" type="Timer" parent="." unique_id=857274766]
+wait_time = 0.5

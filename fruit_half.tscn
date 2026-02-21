@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://g4h5i6j7k8l9"]
+
+[ext_resource type="Script" path="res://fruit_half.gd" id="1_half"]
+[ext_resource type="Texture2D" path="res://assets/sprites/apple.png" id="2_texture"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(30, 60)
+
+[node name="FruitHalf" type="RigidBody2D"]
+script = ExtResource("1_half")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 1)
+texture = ExtResource("2_texture")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1")
