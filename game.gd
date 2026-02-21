@@ -49,8 +49,6 @@ func _ready() -> void:
 	game_over_panel.visible = false
 	continue_button.pressed.connect(_on_continue_pressed)
 	
-	# Курсор = нож
-	_set_knife_cursor()
 
 
 
@@ -72,6 +70,9 @@ func start_countdown() -> void:
 	await get_tree().create_timer(0.5).timeout
 	countdown_label.visible = false
 	is_game_active = true
+	
+	# Курсор = нож
+	_set_knife_cursor()
 	
 	# Запускаем спавн фруктов
 	spawn_timer.wait_time = 0.75
@@ -102,7 +103,7 @@ func spawn_fruit() -> void:
 	if randf() < 0.1:
 		fruit.is_bomb = true
 	else:
-		var fruit_types = ["apple", "banana", "watermelon", "pineapple", "kiwi", "strawberry", "mandarin"]
+		var fruit_types = ["apple", "banana", "watermelon", "pineapple", "kiwi", "strawberry", "mandarin", "lemon", "grape"]
 		fruit.fruit_type = fruit_types[randi() % fruit_types.size()]
 	
 	fruits.append(fruit)

@@ -13,7 +13,9 @@ var fruit_half_textures = {
 	"pineapple": "res://assets/sprites/pineappleHalf.png",
 	"kiwi": "res://assets/sprites/kiwiHalf.png",
 	"strawberry": "res://assets/sprites/strawberryHalf.png",
-	"mandarin": "res://assets/sprites/mandarinHalf.png"
+	"mandarin": "res://assets/sprites/mandarinHalf.png",
+	"lemon": "res://assets/sprites/lemonHalf.png",
+	"grape": "res://assets/sprites/grapeHalf.png"
 	
 }
 
@@ -23,7 +25,10 @@ var fruit_full_textures = {
 	"watermelon": "res://assets/sprites/watermelon.png",
 	"pineapple": "res://assets/sprites/pineapple.png",
 	"kiwi": "res://assets/sprites/kiwi.png",
-	"strawberry": "res://assets/sprites/strawberry.png"
+	"strawberry": "res://assets/sprites/strawberry.png",
+	"mandarin": "res://assets/sprites/mandarin.png",
+	"lemon": "res://assets/sprites/lemon.png",
+	"grape": "res://assets/sprites/grape.png"
 }
 
 func _ready() -> void:

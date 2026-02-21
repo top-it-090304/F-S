@@ -15,7 +15,9 @@ var fruit_textures = {
 	"pineapple": "res://assets/sprites/pineapple.png",
 	"kiwi": "res://assets/sprites/kiwi.png",
 	"strawberry": "res://assets/sprites/strawberry.png",
-	"mandarin": "res://assets/sprites/mandarin.png"
+	"mandarin": "res://assets/sprites/mandarin.png",
+	"lemon": "res://assets/sprites/lemon.png",
+	"grape": "res://assets/sprites/grape.png"
 }
 
 func _ready() -> void:
