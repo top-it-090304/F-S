@@ -29,8 +29,9 @@ Ninja Aurora — аркадная игра в жанре «слайсер» дл
 
 - [Godot Engine](https://godotengine.org/)
 - [Aurora SDK](https://developer.auroraos.ru/)
-- GDScript
+- Язык: GDScript
 - Git 
+- Графика: 2D
 
 ---
   
