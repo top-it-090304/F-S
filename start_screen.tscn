@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bq8x7k2m3n4p5"]
+
+[ext_resource type="Script" uid="uid://m70lsfy67w2r" path="res://start_screen.gd" id="1_start"]
+[ext_resource type="Texture2D" uid="uid://cpigm26pk6s4t" path="res://assets/sprites/pineapple.png" id="2_fruit"]
+
+[sub_resource type="Animation" id="Animation_1"]
+resource_name = "fruit_grow"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FruitSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(0.5, 0.5), Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FruitSprite:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1"]
+_data = {
+&"fruit_grow": SubResource("Animation_1")
+}
+
+[node name="StartScreen" type="Control" unique_id=1110096382]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_start")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1200094362]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.15, 0.2, 1)
+
+[node name="FruitSprite" type="Sprite2D" parent="." unique_id=1390255577]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(540, 960)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_fruit")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1542910394]
+libraries/ = SubResource("AnimationLibrary_1")
+
+[node name="Timer" type="Timer" parent="." unique_id=1259253184]
+wait_time = 2.5
+autostart = true
