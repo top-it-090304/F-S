@@ -29,8 +29,8 @@ func _ready() -> void:
 	
 	sprite.scale = Vector2(0.4, 0.4)
 	
-	var angle = randf_range(-PI/2 - 0.12, -PI/2 + 0.12)  
-	var speed = randf_range(820, 1050) 
+	var angle = randf_range(-PI/1.9 - 0.12, -PI/1.9 + 0.12)  
+	var speed = randf_range(1000, 1300) 
 	velocity = Vector2(cos(angle), sin(angle)) * speed
 	
 	gravity_scale = 0.55  # гравитация 

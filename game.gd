@@ -108,7 +108,7 @@ func spawn_fruit() -> void:
 	
 	fruits.append(fruit)
 	game_area.add_child(fruit)
-	fruit.global_position = Vector2(x, 1850)
+	fruit.global_position = Vector2(x, 1650)
 
 func _touch_to_canvas(screen_pos: Vector2) -> Vector2:
 	var vp = get_viewport()
