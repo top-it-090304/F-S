@@ -33,9 +33,9 @@ func _ready() -> void:
 	
 	if ResourceLoader.exists("res://main_menu.tscn"):
 		main_menu_scene = preload("res://main_menu.tscn")
-		print("✅ main_menu.tscn загружен")
+		print("main_menu.tscn загружен")
 	else:
-		print("❌ main_menu.tscn НЕ НАЙДЕН!")
+		print("main_menu.tscn НЕ НАЙДЕН!")
 	
 	game_manager = get_node("/root/GameManager")
 	game_manager.reset_game()
@@ -45,16 +45,11 @@ func _ready() -> void:
 	
 	start_countdown()
 	
-	# Скрываем сообщение о бомбе
 	bomb_message.visible = false
-	
-	# Скрываем панель окончания игры
 	game_over_panel.visible = false
-	
-	# Подключаем кнопку продолжения
 	continue_button.pressed.connect(_on_continue_pressed)
 	
-	# Курсор = нож (ставим при входе в игру)
+	# Курсор = нож
 	_set_knife_cursor()
 
 
@@ -78,7 +73,7 @@ func start_countdown() -> void:
 	countdown_label.visible = false
 	is_game_active = true
 	
-	# Запускаем спавн фруктов — чаще и больше
+	# Запускаем спавн фруктов
 	spawn_timer.wait_time = 0.75
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
 	spawn_timer.start()
@@ -91,11 +86,11 @@ func start_countdown() -> void:
 func _on_spawn_timer_timeout() -> void:
 	if not is_game_active:
 		return
-	
-	# За один раз появляется несколько фруктов
+
 	spawn_fruit()
 	spawn_fruit()
-	spawn_fruit()
+	spawn_fruit()  
+	# spawn_fruit()
 
 	
 
@@ -104,29 +99,24 @@ func spawn_fruit() -> void:
 	var fruit = fruit_scene.instantiate() as RigidBody2D
 	var x = randf_range(100, 980)
 	
-	# 10% шанс на бомбу
 	if randf() < 0.1:
 		fruit.is_bomb = true
 	else:
-		# Оставляем только фрукты, у которых есть Half-текстуры
-		var fruit_types = ["apple", "banana", "watermelon", "pineapple", "kiwi", "strawberry"]
+		var fruit_types = ["apple", "banana", "watermelon", "pineapple", "kiwi", "strawberry", "mandarin"]
 		fruit.fruit_type = fruit_types[randi() % fruit_types.size()]
 	
 	fruits.append(fruit)
 	game_area.add_child(fruit)
 	fruit.global_position = Vector2(x, 1850)
 
-# Преобразует экранные координаты в координаты канваса (как у фруктов)
 func _touch_to_canvas(screen_pos: Vector2) -> Vector2:
 	var vp = get_viewport()
 	return vp.get_canvas_transform().affine_inverse() * screen_pos
 
 func _set_knife_cursor() -> void:
-	# Рисуем простой нож (светлая полоска-лезвие) как курсор
 	var size = 48
 	var img = Image.create(size, size, false, Image.FORMAT_RGBA8)
 	img.fill(Color(0, 0, 0, 0))
-	# Лезвие — диагональная полоса от центра к краю (кончик ножа внизу-справа)
 	var tip = Vector2(size - 2, size - 2)
 	var base = Vector2(4, 4)
 	for x in range(size):
@@ -139,7 +129,7 @@ func _set_knife_cursor() -> void:
 			elif d <= 5.0:
 				var a = (1.0 - (d - 3.0) / 2.0) * 0.5
 				img.set_pixel(x, y, Color(0.7, 0.85, 1.0, a))
-	# Кончик ножа — точка, по которой режем (hotspot)
+	# Кончик ножа — точка, по которой режем 
 	Input.set_custom_mouse_cursor(img, Input.CURSOR_ARROW, Vector2(size - 4, size - 4))
 
 func _point_to_segment_distance(p: Vector2, a: Vector2, b: Vector2) -> float:
@@ -150,22 +140,17 @@ func _point_to_segment_distance(p: Vector2, a: Vector2, b: Vector2) -> float:
 	return p.distance_to(proj)
 
 func _continue_button_hit(screen_pos: Vector2) -> bool:
-	# Преобразуем экранные координаты в локальные координаты кнопки
 	var canvas_pos = _touch_to_canvas(screen_pos)
-	# Получаем глобальную позицию и размер кнопки
 	var button_rect = Rect2(continue_button.global_position, continue_button.size)
-	# Проверяем попадание с небольшим запасом для удобства нажатия
 	return button_rect.grow(10.0).has_point(canvas_pos)
 
 func _input(event: InputEvent) -> void:
-	# Если показан баннер Game Over — обрабатываем только кнопку "Продолжить"
-	# Game Over — только кнопка "Продолжить"
 	if game_over_panel.visible:
 		if (event is InputEventMouseButton or event is InputEventScreenTouch) and event.pressed:
 			var pos = event.position
 			if _continue_button_hit(pos):
 				_on_continue_pressed()
-				if get_viewport():  # ✅ Безопасная проверка
+				if get_viewport():  
 					get_viewport().set_input_as_handled()
 				return
 		return
@@ -173,7 +158,6 @@ func _input(event: InputEvent) -> void:
 	if not is_game_active:
 		return
 	
-	# Мышь = нож: ведём линию разреза и режем фрукты
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			var canvas_pos = _touch_to_canvas(event.position)
@@ -199,7 +183,7 @@ func _input(event: InputEvent) -> void:
 		queue_redraw()
 		check_cuts_continuous()
 	
-	# Сенсор (палец)
+	# Сенсор 
 	if event is InputEventScreenTouch:
 		if event.pressed:
 			touch_path.clear()
@@ -226,7 +210,6 @@ func _input(event: InputEvent) -> void:
 			check_cuts_continuous()
 
 func _draw() -> void:
-	# Нож — видимый след при свайпе (только если игра активна и нет game over)
 	if not is_game_active or game_over_panel.visible:
 		return
 	
@@ -234,7 +217,6 @@ func _draw() -> void:
 		for i in range(cut_line_points.size() - 1):
 			var start = cut_line_points[i]
 			var end = cut_line_points[i + 1]
-			# Толстая светлая полоса — лезвие ножа
 			draw_line(start, end, Color(0.9, 0.95, 1.0, 0.95), 8.0)
 			draw_line(start, end, Color(0.6, 0.85, 1.0, 0.9), 5.0)
 			draw_line(start, end, Color(1.0, 1.0, 1.0, 0.8), 2.0)
@@ -248,11 +230,9 @@ func check_cuts() -> void:
 func check_cuts_continuous() -> void:
 	if touch_path.size() < 2:
 		return
-	
-	# Проверяем пересечение линии с фруктами
+
 	var cut_fruits: Array[RigidBody2D] = []
 	
-	# Проверяем все сегменты линии свайпа (нож касается фрукта)
 	for i in range(touch_path.size() - 1):
 		var start = touch_path[i]
 		var end = touch_path[i + 1]
@@ -263,7 +243,7 @@ func check_cuts_continuous() -> void:
 			
 			var fruit_pos = fruit.global_position
 			var distance = point_to_line_distance(fruit_pos, start, end)
-			# Радиус попадания ножа по фрукту (маленькие фрукты, достаточный радиус)
+			# Радиус попадания ножа по фрукту 
 			var hit_radius = 55.0
 			if distance < hit_radius:
 				cut_fruits.append(fruit)
@@ -304,7 +284,6 @@ func cut_fruit(fruit: RigidBody2D, cut_position: Vector2) -> void:
 	fruits.erase(fruit)
 
 func create_fruit_halves(fruit: RigidBody2D, position: Vector2) -> void:
-	# Раздвигаем половинки шире по горизонтали
 	var spread = 55.0
 	# Левая половина — уходит влево и вниз
 	var half1 = fruit_half_scene.instantiate()
@@ -320,7 +299,7 @@ func create_fruit_halves(fruit: RigidBody2D, position: Vector2) -> void:
 	half2.is_left_half = false
 	game_area.add_child(half2)
 	
-	# Создаем брызги (частицы)
+	# Брызги
 	create_splatter(position, fruit.fruit_type)
 
 func create_stain(position: Vector2) -> void:
@@ -330,49 +309,43 @@ func create_stain(position: Vector2) -> void:
 	stains.append(stain)
 
 func create_splatter(position: Vector2, fruit_type: String) -> void:
-	# Создаем несколько брызг вокруг места разреза
 	for i in range(8):
 		var splatter = stain_scene.instantiate()
 		var angle = (PI * 2 / 8) * i
 		var distance = randf_range(20, 60)
 		splatter.global_position = position + Vector2(cos(angle), sin(angle)) * distance
 		
-		# Цвет брызг зависит от типа фрукта
 		var color = Color(1.0, 0.2, 0.2, 0.6)  # Красный по умолчанию
 		match fruit_type:
 			"banana":
-				color = Color(1.0, 0.9, 0.2, 0.6)  # Желтый
+				color = Color(1.0, 0.9, 0.2, 0.6)
 			"watermelon":
-				color = Color(1.0, 0.3, 0.3, 0.6)  # Красный
-			"orange", "peach":
-				color = Color(1.0, 0.6, 0.2, 0.6)  # Оранжевый
+				color = Color(1.0, 0.3, 0.3, 0.6) 
+			"orange", "peach", "mandarin":
+				color = Color(1.0, 0.6, 0.2, 0.6) 
 			"grape":
-				color = Color(0.6, 0.2, 0.8, 0.6)  # Фиолетовый
+				color = Color(0.6, 0.2, 0.8, 0.6)
 			"kiwi":
-				color = Color(0.6, 0.9, 0.3, 0.6)  # Зеленый
+				color = Color(0.6, 0.9, 0.3, 0.6)
 			"cherry", "strawberry":
-				color = Color(1.0, 0.1, 0.1, 0.6)  # Красный
+				color = Color(1.0, 0.1, 0.1, 0.6)
 		
 		splatter.modulate = color
 		game_area.add_child(splatter)
 
 func _on_stain_timer_timeout() -> void:
-	# Периодически создаем новые пятна в случайных местах на экране
 	if randf() < 0.2 and is_game_active:
 		var x = randf_range(100, 980)
 		var y = randf_range(200, 1700)
 		create_stain(Vector2(x, y))
 
 func handle_bomb_cut() -> void:
-	# Показываем сообщение
 	bomb_message.text = "Упс, вы разрезали бомбу!"
 	bomb_message.visible = true
 	
-	# Убираем сообщение через 2 секунды
 	await get_tree().create_timer(2.0).timeout
 	bomb_message.visible = false
-	
-	# Отнимаем жизнь
+
 	game_manager.lose_life()
 
 func _on_lives_changed(new_lives: int) -> void:
@@ -385,38 +358,27 @@ func _on_game_over() -> void:
 	is_game_active = false
 	spawn_timer.stop()
 	stain_timer.stop()
-	
-	# Очищаем след ножа
 	touch_path.clear()
 	cut_line_points.clear()
 	is_dragging = false
 	queue_redraw()
-	
-	# Убираем курсор-нож (возвращаем стандартный)
+
 	Input.set_custom_mouse_cursor(null)
 	
-	# Показываем красивый баннер с очками и половинкой арбуза
 	show_game_over_banner()
 
 func show_game_over_banner() -> void:
-	# Устанавливаем очки на баннере
 	game_over_score_label.text = str(game_manager.score)
-	
-	# Загружаем половинку арбуза (маленькая, рядом с очками)
 	var watermelon_half_texture = load("res://assets/sprites/watermelonHalf.png")
 	if watermelon_half_texture:
 		watermelon_half_sprite.texture = watermelon_half_texture
-		# Масштаб уже задан в сцене (0.4), можно не менять
-	
-	# Показываем панель с плавной анимацией появления
+
 	game_over_panel.visible = true
 	game_over_panel.modulate.a = 0.0
 	
-	# Убеждаемся, что кнопка может получать события
 	continue_button.disabled = false
 	continue_button.visible = true
 	
-	# Плавное появление баннера
 	var tween = create_tween()
 	tween.tween_property(game_over_panel, "modulate:a", 1.0, 0.6)
 	
@@ -437,23 +399,16 @@ func clear_game_objects() -> void:
 	queue_redraw()
 
 func _on_continue_pressed() -> void:
-	print("🔄 Переход на главное меню...")
+	print("Переход на главное меню")
 	
-	# Полная очистка состояния
 	is_game_active = false
 	spawn_timer.stop()
 	stain_timer.stop()
 	
-	# Очищаем все объекты
 	clear_game_objects()
 	
-	# Скрываем UI
 	game_over_panel.visible = false
 	bomb_message.visible = false
 	
-	# ПЕРЕХОД НА МЕНЮ (2 варианта)
 	get_tree().change_scene_to_file("res://main_menu.tscn")
-	# ИЛИ если у тебя PackedScene:
-	# get_tree().change_scene_to_packed(main_menu_scene)
-
 	

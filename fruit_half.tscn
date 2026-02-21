@@ -1,17 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://g4h5i6j7k8l9"]
+[gd_scene format=3 uid="uid://g4h5i6j7k8ma"]
 
-[ext_resource type="Script" path="res://fruit_half.gd" id="1_half"]
-[ext_resource type="Texture2D" path="res://assets/sprites/apple.png" id="2_texture"]
+[ext_resource type="Script" uid="uid://7i25ko2ls542" path="res://fruit_half.gd" id="1_half"]
+[ext_resource type="Texture2D" uid="uid://83n2ie42vc3x" path="res://assets/sprites/apple.png" id="2_texture"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(30, 60)
 
-[node name="FruitHalf" type="RigidBody2D"]
+[node name="FruitHalf" type="RigidBody2D" unique_id=841250969]
 script = ExtResource("1_half")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 1)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1801326913]
 texture = ExtResource("2_texture")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=849575956]
 shape = SubResource("RectangleShape2D_1")

@@ -9,14 +9,11 @@ extends Control
 var main_menu_scene = preload("res://main_menu.tscn")
 
 func _ready() -> void:
-	# Настройка начального состояния фрукта
 	fruit_sprite.scale = Vector2(0.1, 0.1)
 	fruit_sprite.modulate.a = 0.0
 	
-	# Запуск анимации увеличения
 	animation_player.play("fruit_grow")
 	
-	# Таймер для перехода в главное меню
 	timer.wait_time = 2.5
 	timer.timeout.connect(_on_timer_timeout)
 	timer.start()

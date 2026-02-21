@@ -6,7 +6,6 @@ var fade_time: float = 3.0
 var elapsed_time: float = 0.0
 
 func _ready() -> void:
-	# Создаем простое красное пятно в виде круга
 	var circle_image = Image.create(64, 64, false, Image.FORMAT_RGBA8)
 	var center = Vector2(32, 32)
 	for x in range(64):

@@ -1,26 +1,25 @@
 extends RigidBody2D
 
-## Половина разрезанного фрукта. Использует pineappleHalf.png и т.д. где есть, иначе половинку из целого.
 
 @onready var sprite: Sprite2D = $Sprite2D
 
 var fruit_type: String = "apple"
 var is_left_half: bool = true
 
-# Текстуры половинок (как pineappleHalf.png) — при разрезе показываем их
 var fruit_half_textures = {
 	"apple": "res://assets/sprites/appleHalf.png",
 	"banana": "res://assets/sprites/bananaHalf.png",
 	"watermelon": "res://assets/sprites/watermelonHalf.png",
 	"pineapple": "res://assets/sprites/pineappleHalf.png",
 	"kiwi": "res://assets/sprites/kiwiHalf.png",
-	"strawberry": "res://assets/sprites/strawberryHalf.png"
+	"strawberry": "res://assets/sprites/strawberryHalf.png",
+	"mandarin": "res://assets/sprites/mandarinHalf.png"
+	
 }
 
-# Целые фрукты (для тех, у кого нет Half — режем текстуру пополам)
 var fruit_full_textures = {
 	"apple": "res://assets/sprites/apple.png",
-	"banana": "res://assets/sprites/banana.png",
+	"banana": "resSS://assets/sprites/banana.png",
 	"watermelon": "res://assets/sprites/watermelon.png",
 	"pineapple": "res://assets/sprites/pineapple.png",
 	"kiwi": "res://assets/sprites/kiwi.png",
@@ -28,7 +27,6 @@ var fruit_full_textures = {
 }
 
 func _ready() -> void:
-	# Сначала пробуем текстуру половинки (pineappleHalf и т.д.)
 	var tex_path: String = ""
 	if fruit_type in fruit_half_textures:
 		tex_path = fruit_half_textures[fruit_type]
@@ -36,7 +34,6 @@ func _ready() -> void:
 		if texture:
 			sprite.texture = texture
 			sprite.region_enabled = false
-			# Половинка — одна картинка; вторая половина — отражённая или та же
 			sprite.scale = Vector2(0.35, 0.35)
 			if not is_left_half:
 				sprite.flip_h = true
@@ -57,18 +54,16 @@ func _ready() -> void:
 				sprite.position.x = 8
 			sprite.scale = Vector2(0.35, 0.35)
 	
-	# Падение вниз с широким разлётом в стороны (разрез заметно раздвигает половинки)
 	var angle: float
 	if is_left_half:
-		angle = randf_range(PI/5, PI/4)   # влево-вниз
+		angle = randf_range(PI/5, PI/4)
 	else:
-		angle = randf_range(3*PI/4, 4*PI/5)  # вправо-вниз
+		angle = randf_range(3*PI/4, 4*PI/5)
 	var speed = randf_range(380, 520)
 	var direction = Vector2(cos(angle), sin(angle))
 	apply_central_impulse(direction * speed)
 	apply_torque_impulse(randf_range(-18, 18))
 
 func _process(delta: float) -> void:
-	# Удаляем половинку, если она упала за экран
 	if global_position.y > 2000:
 		queue_free()
